@@ -1,8 +1,9 @@
-import { Router,Request,Response } from 'express';
+import { Router } from "express";
+import { analyzeHandler } from "../osint/osint.controller.js"
 
-const router = Router();
+const router  = Router();
 
-router.get('/HealthCheck',(req:Request,res:Response)=>{
-    res.status(200).json({status:'ok'});
-})
+router.post('/analyze', analyzeHandler);
+router.get('/analyze', analyzeHandler);
+
 export default router;
